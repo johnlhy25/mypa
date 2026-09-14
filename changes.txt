@@ -1,0 +1,14 @@
+---- Database ----
+1. tbl_ous
+    -> Add ous_email
+
+---- Application ----
+Contorller
+
+Model
+
+View
+1. add-operating-unit.php
+    -> Add email
+
+2. filter year
