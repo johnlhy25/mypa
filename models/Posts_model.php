@@ -4828,6 +4828,8 @@ class Posts_model extends CI_Model{
                 'eval_chklist13' => $this->input->post('eval_chklist13'),
                 'eval_chklist14' => $this->input->post('eval_chklist14'),
 
+               
+
                 'eval_usr_id' => $this->session->usr_id
 
             );
@@ -4844,6 +4846,8 @@ class Posts_model extends CI_Model{
             $data1 = array(
                 'app_result' => $this->input->post('eval_result'),
                 'app_reevaluation' => null,
+                'app_training_hours' => $this->input->post('app_training_hours'),
+                'app_relevant_years' => $this->input->post('app_relevant_years'),
                 'app_lock' => $app_lock
             );
 
@@ -4919,6 +4923,8 @@ class Posts_model extends CI_Model{
                 'eval_chklist13' => $this->input->post('eval_chklist13'),
                 'eval_chklist14' => $this->input->post('eval_chklist14'),
 
+               
+
                 'eval_usr_id' => $this->session->usr_id
 
 
@@ -4935,6 +4941,8 @@ class Posts_model extends CI_Model{
             $data1 = array(
                 'app_result' => $this->input->post('eval_result'),
                 'app_reevaluation' => null,
+                'app_training_hours' => $this->input->post('app_training_hours'),
+                'app_relevant_years' => $this->input->post('app_relevant_years'),
                 'app_lock' => $app_lock
             );
             

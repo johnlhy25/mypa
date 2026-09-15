@@ -576,8 +576,8 @@ if( $this->session->logged_in){
                                   </td>
                                   <td>
                                     <textarea id="eval_chklist4" name="eval_chklist4" rows="2" class="form-control" placeholder=""></textarea>
-                                    <br><small><strong>Relevant Years of Experience</strong></small>
-                                    <input type="number" id="app_relevant_years" name="app_relevant_years" class="form-control" placeholder="No. of Relevant Years of Experience" min='0'>
+                                    <br><small><strong>Relevant Years of Experience <br><span style="color:red">(Number Only)</span></strong></small>
+                                    <input type="text" id="app_experience_years" name="app_relevant_years" class="form-control" placeholder="No. of Relevant Years of Experience" min='0'>
                                   </td>
                               </tr>
                               <tr>
@@ -590,8 +590,8 @@ if( $this->session->logged_in){
                                   </td>
                                   <td>
                                     <textarea id="eval_chklist5" name="eval_chklist5" rows="2" class="form-control" placeholder=""></textarea>
-                                    <br><small><strong>Relevant Training Hours</strong></small>
-                                    <input type="number" id="app_training_hours" name="app_training_hours" class="form-control" placeholder="No. of Relevant Training Hours" min='0'>
+                                    <br><small><strong>Relevant Training Hours<br><span style="color:red">(Number Only)</span></strong></small>
+                                    <input type="text" id="app_training_hours" name="app_training_hours" class="form-control" placeholder="No. of Relevant Training Hours" min='0'>
                                   </td>
                               </tr>
                               <tr>
@@ -1469,6 +1469,8 @@ if( $this->session->logged_in){
                   $('#app_eligibility').text(app_eligibility_text);
                   $('#app_relevant_years').text(total_relevant_years + ' year/s');
                   $('#app_relevant_hours').text(total_training_hours + ' hour/s');
+                  $('#app_experience_years').val($row.data('app_relevant_years'));
+                  $('#app_training_hours').val($row.data('app_training_hours'));
 
                   // ----- Applicant information -----
                   var gender = String($row.data('app_gender') || '').toLowerCase();  // FIX N2
