@@ -105,7 +105,7 @@ if( $this->session->logged_in){
            
             <div class="modal-body"> <!-- Modal Body-->
               <form action="" method="POST" id="evaluate_form" role="form">
-              <input id="app_id_eval" type="hidden" id="app_id_eval" name="app_id_eval" class="form-control">
+              <input id="app_id_eval" type="text" id="app_id_eval" name="app_id_eval" class="form-control">
 
 <!--Applicant Information-->
               <div id="accordion">
@@ -1120,7 +1120,7 @@ if( $this->session->logged_in){
                                           '<td>'+
                                           '<button data-toggle="dropdown" type="button" class="btn btn-outline-primary dropdown-toggle btn-sm"><i class="fa fa-tasks"></i> Actions </button>'+
                                             '<div class="dropdown-menu">'+
-                                              '<a data-toggle="modal" href="#evaluate" class="dropdown-item item_evaluation" data-app_id="'+data[i].app_id+'" data-pos_eligibility="'+data[i].pos_eligibility+'"'+
+                                              '<a data-toggle="modal" href="#evaluate" class="dropdown-item item_evaluation" data-app_id="'+data[i].applicant_id+'" data-pos_eligibility="'+data[i].pos_eligibility+'"'+
                                                'data-pos_education="'+data[i].pos_education+'" data-pos_experience="'+data[i].pos_experience+'" data-pos_training="'+data[i].pos_training+'"'+
                                                'data-app_eligibility="'+data[i].app_eligibility+'" data-app_course="'+data[i].app_course+'"'+
                                                'data-app_relevant_years="'+data[i].app_relevant_years+'" data-app_training_hours="'+data[i].app_training_hours+'" data-app_lastname="'+data[i].app_lastname+'"'+

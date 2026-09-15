@@ -4324,7 +4324,16 @@ class Posts_model extends CI_Model{
     }
 
     public function get_applicants($param){
-        $this->db->select('*');
+       $this->db->select('
+            tbl_hr_applicant.app_id as applicant_id,
+            tbl_hr_applicant.*,
+            tbl_hr_applicant_documents.*,
+            tbl_hr_applicant_evaluation.app_id as applicant_eval_id,
+            tbl_hr_applicant_evaluation.*,
+            tbl_hr_position.*,
+            tbl_hr_vacant.*,
+            tbl_ous.*
+        ');
         $this->db->from('tbl_hr_applicant');
         $this->db->join(
             'tbl_hr_applicant_documents',
