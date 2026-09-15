@@ -69,9 +69,7 @@ if( $this->session->logged_in){
                           <th>Eligibility</th>
                           <th>Education</th>
                           <th>Experience</th>
-                          <th>No. of Years</th>
                           <th>Relevant Trainings</th>
-                          <th>No. of Hours</th>
                           <th>Actions</th>
                         </tr>
                       </thead>
@@ -105,7 +103,7 @@ if( $this->session->logged_in){
            
             <div class="modal-body"> <!-- Modal Body-->
               <form action="" method="POST" id="evaluate_form" role="form">
-              <input id="app_id_eval" type="text" id="app_id_eval" name="app_id_eval" class="form-control">
+              <input id="app_id_eval" type="hidden" id="app_id_eval" name="app_id_eval" class="form-control">
 
 <!--Applicant Information-->
               <div id="accordion">
@@ -115,7 +113,7 @@ if( $this->session->logged_in){
                     <i class="fa fa-user" aria-hidden="true"></i> <b>Applicant</b> Information
                     </a>
                   </div>
-                  <div id="collapseapplicant" class="collapse" data-parent="#accordion">
+                  <div id="collapseapplicant" class="collapse show" data-parent="#accordion">
                     <div class="card-body">
                         <!--First Row-->
                         <div class="row form-group">
@@ -150,7 +148,7 @@ if( $this->session->logged_in){
                               <label for="present_office" class=" form-control-label">Present Office</label>
                           </div>
                           <div class="col col-md-9">
-                              <input type="text" id="present_office" name="present_office" placeholder="Santiago, John Lee Patino" class="form-control" disabled>
+                              <input type="text" id="present_office" name="present_office" placeholder="Technical Education And Skills Development Authority" class="form-control" disabled>
                           </div>
                         </div>
                         <div class="row form-group">
@@ -158,7 +156,7 @@ if( $this->session->logged_in){
                               <label for="present_position" class=" form-control-label">Present Position</label>
                           </div>
                           <div class="col col-md-9">
-                              <input type="text" id="present_position" name="present_position" placeholder="Santiago, John Lee Patino" class="form-control" disabled>
+                              <input type="text" id="present_position" name="present_position" placeholder="Administrative Officer V" class="form-control" disabled>
                           </div>
                         </div>
                         <!--Second Row-->
@@ -169,7 +167,7 @@ if( $this->session->logged_in){
                               <label for="ous_desc" class=" form-control-label">Office where the vacancy</label>
                           </div>
                           <div class="col col-md-9">
-                              <input type="text" id="ous_desc" name="ous_desc" placeholder="Santiago, John Lee Patino" class="form-control" disabled>
+                              <input type="text" id="ous_desc" name="ous_desc" placeholder="" class="form-control" disabled>
                           </div>
                         </div>
                         <div class="row form-group">
@@ -177,7 +175,7 @@ if( $this->session->logged_in){
                               <label for="pos_desc" class="form-control-label">Vacant Position</label>
                           </div>
                           <div class="col col-md-9">
-                              <input type="text" id="pos_desc" name="pos_desc" placeholder="Santiago, John Lee Patino" class="form-control" disabled>
+                              <input type="text" id="pos_desc" name="pos_desc" placeholder="" class="form-control" disabled>
                           </div>
                         </div>
                         <!--Third Row-->
@@ -195,7 +193,7 @@ if( $this->session->logged_in){
                     <i class="fa fa-briefcase" aria-hidden="true"></i> <b>Qualification</b> Standard
                     </a>
                   </div>
-                  <div id="collapsequalification" class="collapse show" data-parent="#accordion1">
+                  <div id="collapsequalification" class="collapse" data-parent="#accordion1">
                     <div class="card-body">
                       <!--First Row-->
                       <div class="row form-group">
@@ -294,24 +292,6 @@ if( $this->session->logged_in){
                       </div>
                       <!--First Row-->
 
-                      <!--Second Row-->
-                      <div class="row form-group">
-                        <div class="col col-md-8">
-                          <label class=" form-control-label"><strong>Result</strong></label>
-                          <label class="form-control-label" style="margin-left:20px">
-                              <input type="radio" id="yes" name="eval_result" value="Qualified" class="form-check-input">Qualified
-                              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                              <input type="radio" id="con" name="eval_result" value="Conditionally Qualified" class="form-check-input">Conditionally Qualified
-                              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                              <input type="radio" id="no" name="eval_result" value="Disqualified" class="form-check-input">Disqualified
-                          </label>
-                        </div>
-
-                        <div class="col col-md-4">
-                          
-                        </div>
-                      </div>
-                      <!--Second Row-->
                     </div>
                   </div>
                 </div>
@@ -596,7 +576,9 @@ if( $this->session->logged_in){
                                   </td>
                                   <td>
                                     <textarea id="eval_chklist4" name="eval_chklist4" rows="2" class="form-control" placeholder=""></textarea>
-                                </td>
+                                    <br><small><strong>Relevant Years of Experience</strong></small>
+                                    <input type="number" id="app_relevant_years" name="app_relevant_years" class="form-control" placeholder="No. of Relevant Years of Experience" min='0'>
+                                  </td>
                               </tr>
                               <tr>
                                 <td><input type="checkbox" id="chk5" name="chk5" value="yes" class="checkbox-template"></td>
@@ -608,7 +590,9 @@ if( $this->session->logged_in){
                                   </td>
                                   <td>
                                     <textarea id="eval_chklist5" name="eval_chklist5" rows="2" class="form-control" placeholder=""></textarea>
-                                </td>
+                                    <br><small><strong>Relevant Training Hours</strong></small>
+                                    <input type="number" id="app_training_hours" name="app_training_hours" class="form-control" placeholder="No. of Relevant Training Hours" min='0'>
+                                  </td>
                               </tr>
                               <tr>
                                 <td><input type="checkbox" id="chk6" name="chk6" value="yes" class="checkbox-template"></td>
@@ -717,6 +701,124 @@ if( $this->session->logged_in){
                       
 <!--Result of Evaluation-->
                       <div class="card-body has-shadow"><!--Card-->
+
+                      <!--Result Row-->
+                        <div class="row form-group">
+                          <div class="col-md-12">
+                            <fieldset class="result-fieldset">
+                              <legend class="result-legend">Evaluation Result</legend>
+
+                              <div class="result-toggle">
+                                <input type="radio" id="eval_result_qualified" name="eval_result"
+                                      value="Qualified" class="result-toggle__input">
+                                <label class="result-toggle__label result-toggle__label--pass" for="eval_result_qualified">
+                                  <i class="fa fa-check-circle"></i> Qualified
+                                </label>
+
+                                <input type="radio" id="eval_result_conditional" name="eval_result"
+                                      value="Conditionally Qualified" class="result-toggle__input">
+                                <label class="result-toggle__label result-toggle__label--warn" for="eval_result_conditional">
+                                  <i class="fa fa-exclamation-circle"></i> Conditionally Qualified
+                                </label>
+
+                                <input type="radio" id="eval_result_disqualified" name="eval_result"
+                                      value="Disqualified" class="result-toggle__input">
+                                <label class="result-toggle__label result-toggle__label--fail" for="eval_result_disqualified">
+                                  <i class="fa fa-times-circle"></i> Disqualified
+                                </label>
+                              </div>
+                            </fieldset>
+                          </div>
+                        </div>
+                        <!--Result Row-->
+                        <style>
+                            .result-fieldset {
+                              border: none;
+                              margin: 0 0 1rem;
+                              padding: 0;
+                            }
+
+                            .result-legend {
+                              font-size: 0.95rem;
+                              font-weight: 700;
+                              letter-spacing: .03em;
+                              text-transform: uppercase;
+                              color: #495057;
+                              margin-bottom: .6rem;
+                            }
+
+                            .result-toggle {
+                              display: flex;
+                              flex-wrap: wrap;
+                              gap: .6rem;
+                            }
+
+                            /* hide the native radio, keep it focusable/accessible */
+                            .result-toggle__input {
+                              position: absolute;
+                              opacity: 0;
+                              width: 1px;
+                              height: 1px;
+                            }
+
+                            .result-toggle__label {
+                              display: inline-flex;
+                              align-items: center;
+                              gap: .4rem;
+                              padding: .55rem 1.1rem;
+                              border-radius: 999px;
+                              border: 2px solid #dee2e6;
+                              background: #fff;
+                              color: #495057;
+                              font-weight: 600;
+                              font-size: .92rem;
+                              cursor: pointer;
+                              transition: all .15s ease;
+                              user-select: none;
+                            }
+
+                            .result-toggle__label:hover {
+                              box-shadow: 0 2px 6px rgba(0,0,0,.08);
+                            }
+
+                            /* keyboard focus ring — required since the input itself is visually hidden */
+                            .result-toggle__input:focus-visible + .result-toggle__label {
+                              outline: 2px solid #0d6efd;
+                              outline-offset: 2px;
+                            }
+
+                            /* color states per option, only when checked */
+                            .result-toggle__label--pass i { color: #198754; }
+                            .result-toggle__input:checked + .result-toggle__label--pass {
+                              background: #198754;
+                              border-color: #198754;
+                              color: #fff;
+                            }
+                            .result-toggle__input:checked + .result-toggle__label--pass i { color: #fff; }
+
+                            .result-toggle__label--warn i { color: #fd7e14; }
+                            .result-toggle__input:checked + .result-toggle__label--warn {
+                              background: #fd7e14;
+                              border-color: #fd7e14;
+                              color: #fff;
+                            }
+                            .result-toggle__input:checked + .result-toggle__label--warn i { color: #fff; }
+
+                            .result-toggle__label--fail i { color: #dc3545; }
+                            .result-toggle__input:checked + .result-toggle__label--fail {
+                              background: #dc3545;
+                              border-color: #dc3545;
+                              color: #fff;
+                            }
+                            .result-toggle__input:checked + .result-toggle__label--fail i { color: #fff; }
+
+                            @media (max-width: 480px) {
+                              .result-toggle { flex-direction: column; }
+                              .result-toggle__label { width: 100%; justify-content: center; }
+                            }
+                        </style>
+                      <!--Result Row-->
+
                         <!--First Row-->
                         <div class="row form-group">
                           <div class="col col-md-5">
@@ -951,6 +1053,16 @@ if( $this->session->logged_in){
 <!--END MODAL Notify Qualified-->   
 
       <script type="text/javascript">
+
+        const APP_CFG = {
+            baseUrl:    '<?= base_url() ?>',
+            viewerBase: '<?= base_url() ?>pdfviewer/web/viewer.php?file=<?= base_url() ?>uploads/ApplicantDocx/',
+            rmsBase:    'https://rms.tesdar02onlinereporting.ph/applicants_docs/',
+            rmsViewer:  'https://rms.tesdar02onlinereporting.ph/applicants_docs/pdfviewer/web/viewer.php?file=https://rms.tesdar02onlinereporting.ph/applicants_docs/',
+            careerUrl:  '<?= rtrim(config_item("career_portal_url") ?: "http://localhost/careers/", "/") ?>/',
+            docCutoff:  '<?= config_item("career_doc_cutoff") ?: "2026-09-01" ?>'
+        };
+
           $(document).ready(function(){
             
               show_applicants(); //call function show all applicants
@@ -1114,46 +1226,44 @@ if( $this->session->logged_in){
                                           '<td>'+eligibility+'</td>'+
                                           '<td>'+data[i].app_course+'</td>'+
                                           '<td>'+relevant_experience+'</td>'+
-                                          '<td>'+total_relevant_years1 + relevant_years+'</td>'+
                                           '<td>'+training+'</td>'+
-                                          '<td>'+total_training_hours1 + total_training_hours2+'</td>'+
                                           '<td>'+
                                           '<button data-toggle="dropdown" type="button" class="btn btn-outline-primary dropdown-toggle btn-sm"><i class="fa fa-tasks"></i> Actions </button>'+
                                             '<div class="dropdown-menu">'+
                                               '<a data-toggle="modal" href="#evaluate" class="dropdown-item item_evaluation" data-app_id="'+data[i].applicant_id+'" data-pos_eligibility="'+data[i].pos_eligibility+'"'+
-                                               'data-pos_education="'+data[i].pos_education+'" data-pos_experience="'+data[i].pos_experience+'" data-pos_training="'+data[i].pos_training+'"'+
-                                               'data-app_eligibility="'+data[i].app_eligibility+'" data-app_course="'+data[i].app_course+'"'+
-                                               'data-app_relevant_years="'+data[i].app_relevant_years+'" data-app_training_hours="'+data[i].app_training_hours+'" data-app_lastname="'+data[i].app_lastname+'"'+
-                                               'data-app_firstname="'+data[i].app_firstname+'" data-app_middlename="'+data[i].app_middlename+'"'+
-                                               'data-app_age="'+data[i].app_age+'" data-app_gender="'+data[i].app_gender+'"'+
-                                               'data-ous_desc="'+data[i].ous_desc+'" data-pos_desc="'+data[i].pos_desc+'"'+
-                                               'data-app_present_position="'+data[i].app_present_position+'" data-app_present_office="'+data[i].app_present_office+'" data-app_performance="'+data[i].app_performance+'"'+
-                                               'data-app_performance_international="'+data[i].app_performance_international+'" data-app_performance_national="'+data[i].app_performance_national+'"'+
-                                               'data-app_performance_regional="'+data[i].app_performance_regional+'" data-app_performance_provincial="'+data[i].app_performance_provincial+'"'+
-                                               'data-app_expert_international="'+data[i].app_expert_international+'" data-app_expertise_national="'+data[i].app_expertise_national+'"'+
-                                               'data-app_expertise_regional="'+data[i].app_expertise_regional+'" data-app_expertise_provincial="'+data[i].app_expertise_provincial+'"'+
-                                               'data-app_service="'+data[i].app_service+'" data-app_committee_chair="'+data[i].app_committee_chair+'" data-app_committee_vchair="'+data[i].app_committee_vchair+'"'+
-                                               'data-app_committee_member="'+data[i].app_committee_member+'" data-app_committee_sec="'+data[i].app_committee_sec+'" data-app_committee="'+data[i].app_committee+'"'+
-                                               'data-app_eligibility_doc="'+data[i].app_eligibility_doc+'" data-app_educational_doc="'+data[i].app_educational_doc+'" data-app_coe_doc="'+data[i].app_coe_doc+'"'+
-                                               'data-app_training_doc="'+data[i].app_training_doc+'" data-app_ipcr_doc="'+data[i].app_ipcr+'"'+
-                                               'data-btn_pdswes_doc="'+data[i].app_pds+'" data-btn_wes_doc="'+data[i].app_wes+'"'+
-                                               'data-btn_service_reccord_doc="'+data[i].app_sr+'" data-btn_appointment_doc="'+data[i].app_appointment+'" '+
-                                               'data-btn_nc_doc="'+data[i].app_nc_doc+'" data-btn_nttc_doc="'+data[i].app_nttc_doc+'" data-app_intent="'+data[i].app_intent+'" data-is_backup="'+data[i].is_backup+'" data-app_timestamp="'+ data[i].app_timestamp +'" data-app_hash="'+data[i].app_hash1+'"'+
-                                               'data-eval_eligibility ="'+data[i].eval_eligibility+'" data-eval_education="'+data[i].eval_education+'"'+
-                                               'data-eval_experience ="'+data[i].eval_experience+'" data-eval_performance="'+data[i].eval_performance+'"'+
-                                               'data-eval_training ="'+data[i].eval_training+'" data-eval_arp_international	="'+data[i].eval_arp_international	+'"'+
-                                               'data-eval_arp_national ="'+data[i].eval_arp_national+'" data-eval_arp_regional	="'+data[i].eval_arp_regional	+'"'+
-                                               'data-eval_arp_provincial ="'+data[i].eval_arp_provincial+'" data-eval_result	="'+data[i].eval_result	+'"'+
-                                               'data-eval_chklist1 ="'+data[i].eval_chklist1+'" data-eval_chklist2	="'+data[i].eval_chklist2	+'"'+
-                                               'data-eval_chklist3 ="'+data[i].eval_chklist3+'" data-eval_chklist4	="'+data[i].eval_chklist4	+'"'+
-                                               'data-eval_chklist5 ="'+data[i].eval_chklist5+'" data-eval_chklist6="'+data[i].eval_chklist6	+'"'+
-                                               'data-eval_chklist8 ="'+data[i].eval_chklist8+'" data-eval_chklist9="'+data[i].eval_chklist9	+'"'+
-                                               'data-eval_chklist10 ="'+data[i].eval_chklist10+'" data-eval_chklist13="'+data[i].eval_chklist13	+'"'+
-                                               'data-eval_chklist14 ="'+data[i].eval_chklist14+'" data-eval_remarks="'+data[i].eval_remarks	+'"'+
-                                               'data-eval_remarks1 ="'+data[i].eval_remarks1+'" data-eval_chklist ="'+data[i].eval_chklist+'"'+
-                                               '>'+
+                                                'data-pos_education="'+data[i].pos_education+'" data-pos_experience="'+data[i].pos_experience+'" data-pos_training="'+data[i].pos_training+'"'+
+                                                'data-app_eligibility="'+data[i].app_eligibility+'" data-app_course="'+data[i].app_course+'"'+
+                                                'data-app_relevant_years="'+data[i].app_relevant_years+'" data-app_training_hours="'+data[i].app_training_hours+'" data-app_lastname="'+data[i].app_lastname+'"'+
+                                                'data-app_firstname="'+data[i].app_firstname+'" data-app_middlename="'+data[i].app_middlename+'"'+
+                                                'data-app_age="'+data[i].app_age+'" data-app_gender="'+data[i].app_gender+'"'+
+                                                'data-ous_desc="'+data[i].ous_desc+'" data-pos_desc="'+data[i].pos_desc+'"'+
+                                                'data-app_present_position="'+data[i].app_present_position+'" data-app_present_office="'+data[i].app_present_office+'" data-app_performance="'+data[i].app_performance+'"'+
+                                                'data-app_performance_international="'+data[i].app_performance_international+'" data-app_performance_national="'+data[i].app_performance_national+'"'+
+                                                'data-app_performance_regional="'+data[i].app_performance_regional+'" data-app_performance_provincial="'+data[i].app_performance_provincial+'"'+
+                                                'data-app_expert_international="'+data[i].app_expert_international+'" data-app_expertise_national="'+data[i].app_expertise_national+'"'+
+                                                'data-app_expertise_regional="'+data[i].app_expertise_regional+'" data-app_expertise_provincial="'+data[i].app_expertise_provincial+'"'+
+                                                'data-app_service="'+data[i].app_service+'" data-app_committee_chair="'+data[i].app_committee_chair+'" data-app_committee_vchair="'+data[i].app_committee_vchair+'"'+
+                                                'data-app_committee_member="'+data[i].app_committee_member+'" data-app_committee_sec="'+data[i].app_committee_sec+'" data-app_committee="'+data[i].app_committee+'"'+
+                                                'data-app_eligibility_doc="'+data[i].app_eligibility_doc+'" data-app_educational_doc="'+data[i].app_educational_doc+'" data-app_coe_doc="'+data[i].app_coe_doc+'"'+
+                                                'data-app_training_doc="'+data[i].app_training_doc+'" data-app_ipcr_doc="'+data[i].app_ipcr+'"'+
+                                                'data-btn_pdswes_doc="'+data[i].app_pds+'" data-btn_wes_doc="'+data[i].app_wes+'"'+
+                                                'data-btn_service_reccord_doc="'+data[i].app_sr+'" data-btn_appointment_doc="'+data[i].app_appointment+'" '+
+                                                'data-btn_nc_doc="'+data[i].app_nc_doc+'" data-btn_nttc_doc="'+data[i].app_nttc_doc+'" data-app_intent="'+data[i].app_intent+'" data-is_backup="'+data[i].is_backup+'" data-app_timestamp="'+ data[i].app_timestamp +'" data-app_hash="'+data[i].app_hash1+'"'+
+                                                'data-eval_eligibility ="'+data[i].eval_eligibility+'" data-eval_education="'+data[i].eval_education+'"'+
+                                                'data-eval_experience ="'+data[i].eval_experience+'" data-eval_performance="'+data[i].eval_performance+'"'+
+                                                'data-eval_training ="'+data[i].eval_training+'" data-eval_arp_international	="'+data[i].eval_arp_international	+'"'+
+                                                'data-eval_arp_national ="'+data[i].eval_arp_national+'" data-eval_arp_regional	="'+data[i].eval_arp_regional	+'"'+
+                                                'data-eval_arp_provincial ="'+data[i].eval_arp_provincial+'" data-eval_result	="'+data[i].eval_result	+'"'+
+                                                'data-eval_chklist1 ="'+data[i].eval_chklist1+'" data-eval_chklist2	="'+data[i].eval_chklist2	+'"'+
+                                                'data-eval_chklist3 ="'+data[i].eval_chklist3+'" data-eval_chklist4	="'+data[i].eval_chklist4	+'"'+
+                                                'data-eval_chklist5 ="'+data[i].eval_chklist5+'" data-eval_chklist6="'+data[i].eval_chklist6	+'"'+
+                                                'data-eval_chklist8 ="'+data[i].eval_chklist8+'" data-eval_chklist9="'+data[i].eval_chklist9	+'"'+
+                                                'data-eval_chklist10 ="'+data[i].eval_chklist10+'" data-eval_chklist13="'+data[i].eval_chklist13	+'"'+
+                                                'data-eval_chklist14 ="'+data[i].eval_chklist14+'" data-eval_remarks="'+data[i].eval_remarks	+'"'+
+                                                'data-eval_remarks1 ="'+data[i].eval_remarks1+'" data-eval_chklist ="'+data[i].eval_chklist+'"'+
+                                                '>'+
                                                '<i class="fa fa-check"> </i> Evaluate</a>'+
-                                               '<a data-toggle="modal" href="#send_invitation" class="dropdown-item item_invitation" data-app_hash="'+data[i].app_hash1+'"'+ 
+                                               '<a data-toggle="modal" href="#send_invitation" class="dropdown-item item_invitation" style="display:none" data-app_hash="'+data[i].app_hash1+'"'+ 
                                                '>'+
                                                '<i class="fa fa-paper-plane"> </i> Send Invitation</a>'+
                                             '</div>'+
@@ -1169,6 +1279,7 @@ if( $this->session->logged_in){
                   });
               }
             //Send Link
+
             $('#applicants_table_body').on('click', '.item_invitation', function () {
 
                 var app_hash = $(this).data('app_hash');
@@ -1186,581 +1297,311 @@ if( $this->session->logged_in){
 
             });
 
-            //get data for standard qualification
-            $('#applicants_table_body').on('click','.item_evaluation',function(){
-                var pos_eligibility = $(this).data('pos_eligibility');
-                var pos_education = $(this).data('pos_education');
-                var pos_experience = $(this).data('pos_experience');
-                var pos_training = $(this).data('pos_training');
-                var app_course = $(this).data('app_course');
+            (function () {
+              'use strict';
 
-                //Annexes 
-                var app_id = $(this).data('app_id');
-                var appannexj = '<?php echo base_url()?>r2_annex_j/' + app_id;
-                var appannexj2 = '<?php echo base_url()?>r2_annex_j2/' + app_id;
-                $("#appannexj").prop("href", appannexj);
-                $("#appannexj2").prop("href", appannexj2);
-                $('#app_id_eval').val(app_id);
-                //Annexes
+              // Maps a jQuery data-key -> career portal route segment
+              var DOC_MAP = {
+                  app_letter:              'intent',
+                  app_coe_doc:             'coe',
+                  app_eligibility_doc:     'eligibility',
+                  app_educational_doc:     'educational',
+                  app_training_doc:        'training',
+                  app_ipcr_doc:            'ipcr',
+                  btn_pdswes_doc:          'pds',
+                  btn_wes_doc:             'wes',
+                  btn_service_reccord_doc: 'sr',
+                  btn_appointment_doc:     'cpa',
+                  btn_nc_doc:              'nc',
+                  btn_nttc_doc:            'nttc',
+                  app_performance:         'awards'
+              };
 
-                //Evaluation Result
-                var eval_result = $(this).data('eval_result');
-                $('input[name="eval_result"][value="' + eval_result + '"]').prop('checked', true);
+              // route segment -> the anchors that should point at it
+              var DOC_TARGETS = {
+                  intent:      ['#app_letter_link', '#btn_app_letter_link'],
+                  coe:         ['#app_coe_doc_link', '#btn_coe_doc_link1'],
+                  eligibility: ['#app_eligibility_doc_link1', '#btn_eligibility_doc_link1'],
+                  educational: ['#app_educational_doc_link', '#btn_tor_doc_link'],
+                  training:    ['#app_training_doc_link', '#btn_training_doc_link'],
+                  ipcr:        ['#app_ipcr_doc_link', '#btn_ipcr_doc_link'],
+                  pds:         ['#btn_pdswes_doc_link'],
+                  wes:         ['#btn_wes_doc_link', '#btn_wes_doc_link1'],
+                  sr:          ['#btn_service_reccord_doc_link'],
+                  cpa:         ['#btn_appointment_doc_link'],
+                  nc:          ['#btn_nc_doc_link'],
+                  nttc:        ['#btn_nttc_doc_link'],
+                  awards:      ['#btn_arp_doc_link', '#btn_app_arp_international']
+              };
 
-                var eval_eligibility = $(this).data('eval_eligibility');
-                $('input[name="eval_eligibility"][value="' + eval_eligibility + '"]').prop('checked', true);
+              var ELIGIBILITY_LABELS = {
+                  '':       'Career Executive Service Eligibility',
+                  'csp':    'Career Service Professional Eligibility',
+                  'cssp':   'Career Service Sub Professional Eligibility',
+                  'ra1080': 'R.A. 1080',
+                  'pd907':  'PD 907',
+                  'mc11':   'MC 11 SERIES OF 1996'
+              };
 
-                var eval_education = $(this).data('eval_education');
-                $('input[name="eval_education"][value="' + eval_education + '"]').prop('checked', true);
+              // ---------- helpers ----------
 
-                var eval_experience = $(this).data('eval_experience');
-                $('input[name="eval_experience"][value="' + eval_experience + '"]').prop('checked', true);
+              function hasValue(v) {
+                  return v !== null && v !== undefined && String(v).trim() !== '';
+              }
 
-                var eval_performance = $(this).data('eval_performance');
-                $('input[name="eval_performance"][value="' + eval_performance + '"]').prop('checked', true);
+              function sumSemicolonList(raw) {
+                  if (!hasValue(raw)) { return 0; }
+                  return String(raw).split(';').reduce(function (acc, v) {
+                      var n = parseFloat(v);
+                      return acc + (isNaN(n) ? 0 : n);   // FIX M3: NaN no longer poisons the total
+                  }, 0);
+              }
 
-                var eval_training = $(this).data('eval_training');
-                $('input[name="eval_training"][value="' + eval_training + '"]').prop('checked', true);
+              function formatEligibility(raw) {
+                  if (!hasValue(raw)) { return 'N/A'; }
+                  return String(raw).split(';').map(function (v) {
+                      var key = String(v).trim().toLowerCase();
+                      return ELIGIBILITY_LABELS.hasOwnProperty(key)
+                          ? ELIGIBILITY_LABELS[key]
+                          : String(v).trim().toUpperCase();
+                  }).filter(function (s) { return s !== ''; })
+                    .join(' | ');                        // FIX N1: no trailing separator
+              }
 
-                var eval_arp_international = $(this).data('eval_arp_international');
-                $('#eval_arp_international').val(eval_arp_international);
+              function isPostCutoff(timestamp) {
+                  if (!hasValue(timestamp)) { return false; }
+                  var d = new Date(String(timestamp).replace(' ', 'T'));
+                  if (isNaN(d.getTime())) { return false; }   // FIX: guard Invalid Date
+                  return d >= new Date(APP_CFG.docCutoff + 'T00:00:00');
+              }
 
-                var eval_arp_national = $(this).data('eval_arp_national');
-                $('#eval_arp_national').val(eval_arp_national);
+              function setHref(selectors, url) {
+                  $(selectors.join(',')).attr('href', url).attr('target', '_blank');
+              }
 
-                var eval_arp_regional = $(this).data('eval_arp_regional');
-                $('#eval_arp_regional').val(eval_arp_regional);
+              function setDisabled($el, disabled) {
+                  $el.toggleClass('disabled', disabled)          // FIX M5
+                    .attr('aria-disabled', disabled ? 'true' : 'false')
+                    .attr('tabindex', disabled ? '-1' : null);
+              }
 
-                var eval_arp_provincial = $(this).data('eval_arp_provincial');
-                $('#eval_arp_provincial').val(eval_arp_provincial);
+              function buildDocUrl($row, dataKey, route) {
+                  var filename  = $row.data(dataKey);
+                  var isBackup  = $row.data('is_backup');
+                  var appHash   = $row.data('app_hash');
 
-                var eval_chklist = $(this).data('eval_chklist');
-                $('#eval_chklist').val(eval_chklist);
-
-                var eval_chklist1 = $(this).data('eval_chklist1');
-                $('#eval_chklist1').val(eval_chklist1);
-
-                var eval_chklist2 = $(this).data('eval_chklist2');
-                $('#eval_chklist2').val(eval_chklist2);
-
-                var eval_chklist3 = $(this).data('eval_chklist3');
-                $('#eval_chklist3').val(eval_chklist3);
-
-                var eval_chklist4 = $(this).data('eval_chklist4');
-                $('#eval_chklist4').val(eval_chklist4);
-
-                var eval_chklist5 = $(this).data('eval_chklist5');
-                $('#eval_chklist5').val(eval_chklist5);
-
-                var eval_chklist6 = $(this).data('eval_chklist6');
-                $('#eval_chklist6').val(eval_chklist6);
-
-                var eval_chklist8 = $(this).data('eval_chklist8');
-                $('#eval_chklist8').val(eval_chklist8);
-
-                var eval_chklist9 = $(this).data('eval_chklist9');
-                $('#eval_chklist9').val(eval_chklist9);
-
-                var eval_chklist10 = $(this).data('eval_chklist10');
-                $('#eval_chklist10').val(eval_chklist10);
-
-                var eval_chklist13 = $(this).data('eval_chklist13');
-                $('#eval_chklist13').val(eval_chklist13);
-
-                var eval_chklist14 = $(this).data('eval_chklist14');
-                $('#eval_chklist14').val(eval_chklist14);
-
-                var eval_remarks = $(this).data('eval_remarks');
-                var eval_remarks1 = $(this).data('eval_remarks1');
-
-                if (eval_remarks1 !== null && eval_remarks1 !== '') {
-                    $('input[name="chk16"]').prop('checked', true);
-                    $("#chk16_div").show();
-                    $('#eval_remarks1').val(eval_remarks1);
-                }
-
-                if (eval_remarks !== null && eval_remarks !== '') {
-                    $('input[name="chk18"]').prop('checked', true);
-                    $("#chk18_div").show();
-                    $('#eval_remarks').val(eval_remarks);
-                }
-                
-
-
-
-                //------Applicant Documents--------
-                var is_backup = $(this).data('is_backup');
-                var app_hash = $(this).data('app_hash');
-                if(is_backup != null){
-                  var app_letter = $(this).data('app_intent');
-                  var app_letter_link = '<?php echo 'https://rms.tesdar02onlinereporting.ph/applicants_docs/pdfviewer/web/viewer.php?file=https://rms.tesdar02onlinereporting.ph/applicants_docs/'?>' + is_backup + '/' + app_letter;
-                  $("#app_letter_link").attr("href", app_letter_link).attr("target", "_blank");
-                  $("#btn_app_letter_link").attr("href", app_letter_link).attr("target", "_blank");
-
-                  var app_coe_doc = $(this).data('app_coe_doc');
-                  var app_coe_doc_link = '<?php echo 'https://rms.tesdar02onlinereporting.ph/applicants_docs/pdfviewer/web/viewer.php?file=https://rms.tesdar02onlinereporting.ph/applicants_docs/'?>' + is_backup + '/' + app_coe_doc;
-                  $("#app_coe_doc_link").attr("href", app_coe_doc_link).attr("target", "_blank");
-                  $("#btn_coe_doc_link1").attr("href", app_coe_doc_link).attr("target", "_blank");
-                  
-                  var app_eligibility_doc = $(this).data('app_eligibility_doc');
-                  var app_eligibility_doc_link = '<?php echo 'https://rms.tesdar02onlinereporting.ph/applicants_docs/pdfviewer/web/viewer.php?file=https://rms.tesdar02onlinereporting.ph/applicants_docs/'?>' + is_backup + '/' + app_eligibility_doc;
-                  $("#app_eligibility_doc_link1").prop("href", app_eligibility_doc_link).attr("target", "_blank");
-                  $("#btn_eligibility_doc_link1").prop("href", app_eligibility_doc_link).attr("target", "_blank");
-
-                  var app_educational_doc = $(this).data('app_educational_doc');
-                  var app_educational_doc_link = '<?php echo 'https://rms.tesdar02onlinereporting.ph/applicants_docs/pdfviewer/web/viewer.php?file=https://rms.tesdar02onlinereporting.ph/applicants_docs/'?>' + is_backup + '/' + app_educational_doc;
-                  $("#app_educational_doc_link").prop("href", app_educational_doc_link).attr("target", "_blank");
-                  $("#btn_tor_doc_link").prop("href", app_educational_doc_link).attr("target", "_blank");
-                
-                  var app_training_doc = $(this).data('app_training_doc');
-                  var app_training_doc_link = '<?php echo 'https://rms.tesdar02onlinereporting.ph/applicants_docs/pdfviewer/web/viewer.php?file=https://rms.tesdar02onlinereporting.ph/applicants_docs/'?>' + is_backup + '/' + app_training_doc;
-                  $("#app_training_doc_link").prop("href", app_training_doc_link).attr("target", "_blank");
-                  $("#btn_training_doc_link").prop("href", app_training_doc_link).attr("target", "_blank");
-
-                  var app_ipcr_doc = $(this).data('app_ipcr_doc');
-                  var app_ipcr_doc_link = '<?php echo 'https://rms.tesdar02onlinereporting.ph/applicants_docs/pdfviewer/web/viewer.php?file=https://rms.tesdar02onlinereporting.ph/applicants_docs/'?>' + is_backup + '/' + app_ipcr_doc;
-                  $("#app_ipcr_doc_link").prop("href", app_ipcr_doc_link).attr("target", "_blank");
-                  $("#btn_ipcr_doc_link").prop("href", app_ipcr_doc_link).attr("target", "_blank");
-
-                  var btn_pdswes_doc_link = $(this).data('btn_pdswes_doc');
-                  var btn_pdswes_doc_link = '<?php echo 'https://rms.tesdar02onlinereporting.ph/applicants_docs/pdfviewer/web/viewer.php?file=https://rms.tesdar02onlinereporting.ph/applicants_docs/'?>' + is_backup + '/' + btn_pdswes_doc_link;
-                  $("#btn_pdswes_doc_link").prop("href", btn_pdswes_doc_link).attr("target", "_blank");
-
-                  var btn_wes_doc_link = $(this).data('btn_wes_doc');
-                  var btn_wes_doc_link = '<?php echo 'https://rms.tesdar02onlinereporting.ph/applicants_docs/pdfviewer/web/viewer.php?file=https://rms.tesdar02onlinereporting.ph/applicants_docs/'?>' + is_backup + '/' + btn_wes_doc_link;
-                  $("#btn_wes_doc_link").prop("href", btn_wes_doc_link).attr("target", "_blank");
-                  $("#btn_wes_doc_link1").prop("href", btn_wes_doc_link).attr("target", "_blank");
-                  
-                  var btn_service_reccord_doc_link = $(this).data('btn_service_reccord_doc');
-                  var btn_service_reccord_doc_link = '<?php 'https://rms.tesdar02onlinereporting.ph/applicants_docs/pdfviewer/web/viewer.php?file=https://rms.tesdar02onlinereporting.ph/applicants_docs/'?>' + is_backup + '/' + btn_service_reccord_doc_link;
-                  $("#btn_service_reccord_doc_link").prop("href", btn_service_reccord_doc_link).attr("target", "_blank");
-
-                  var btn_appointment_doc_link = $(this).data('btn_appointment_doc');
-                  var btn_appointment_doc_link = '<?php echo 'https://rms.tesdar02onlinereporting.ph/applicants_docs/pdfviewer/web/viewer.php?file=https://rms.tesdar02onlinereporting.ph/applicants_docs/'?>' + is_backup + '/' + btn_appointment_doc_link;
-                  $("#btn_appointment_doc_link").prop("href", btn_appointment_doc_link).attr("target", "_blank");
-
-                  var btn_nc_doc_link = $(this).data('btn_nc_doc');
-                  var btn_nc_doc_link = '<?php echo 'https://rms.tesdar02onlinereporting.ph/applicants_docs/pdfviewer/web/viewer.php?file=https://rms.tesdar02onlinereporting.ph/applicants_docs/'?>' + is_backup + '/' + btn_nc_doc_link;
-                  $("#btn_nc_doc_link").prop("href", btn_nc_doc_link).attr("target", "_blank");
-
-                  var btn_nttc_doc_link = $(this).data('btn_nttc_doc');
-                  var btn_nttc_doc_link = '<?php echo 'https://rms.tesdar02onlinereporting.ph/applicants_docs/pdfviewer/web/viewer.php?file=https://rms.tesdar02onlinereporting.ph/applicants_docs/'?>' + is_backup + '/' + btn_nttc_doc_link;
-                  $("#btn_nttc_doc_link").prop("href", btn_nttc_doc_link).attr("target", "_blank");
-
-                }else{
-
-                  var career_url = 'http://localhost/careers/';
-
-                  // Normalize to a real Date object regardless of exact string format
-                  var app_timestamp = $(this).data('app_timestamp');
-                  var appDate = new Date(String(app_timestamp).replace(' ', 'T'));
-                  var cutoffDate = new Date('2026-09-01T00:00:00');
-
-                  var app_hash = $(this).data('app_hash');
-
-                  // ================================
-                  // LETTER OF INTENT
-                  // ================================
-                  var app_letter = $(this).data('app_letter');
-
-                  if (appDate >= cutoffDate) {
-                      var app_letter_link =
-                          career_url +'view-document/intent/' + app_hash;
-                  } else {
-                      var app_letter_link =
-                          '<?php echo base_url().'pdfviewer/web/viewer.php?file='.base_url().'uploads/ApplicantDocx/'; ?>'
-                          + app_letter;
+                  if (hasValue(isBackup)) {
+                      if (!hasValue(filename)) { return null; }
+                      return APP_CFG.rmsViewer + encodeURIComponent(isBackup) + '/' +
+                            encodeURIComponent(filename);
                   }
 
-                  $("#app_letter_link")
-                      .attr("href", app_letter_link)
-                      .attr("target", "_blank");
-
-                  $("#btn_app_letter_link")
-                      .attr("href", app_letter_link)
-                      .attr("target", "_blank");
-
-                      
-                  // ================================
-                  // CERTIFICATE OF EMPLOYMENT
-                  // ================================
-                  var app_coe_doc = $(this).data('app_coe_doc');
-
-                  if (appDate >= cutoffDate) {
-                      var app_coe_doc_link = career_url + 'view-document/coe/' + app_hash;
-                  } else {
-                      var app_coe_doc_link =
-                          '<?php echo base_url().'pdfviewer/web/viewer.php?file='.base_url().'uploads/ApplicantDocx/'; ?>'
-                          + app_coe_doc;
+                  if (isPostCutoff($row.data('app_timestamp'))) {
+                      if (!hasValue(appHash)) { return null; }
+                      return APP_CFG.careerUrl + 'view-document/' + route + '/' +
+                            encodeURIComponent(appHash);
                   }
 
-                  $("#app_coe_doc_link").attr("href", app_coe_doc_link).attr("target", "_blank");
-                  $("#btn_coe_doc_link1").attr("href", app_coe_doc_link).attr("target", "_blank");
+                  if (!hasValue(filename)) { return null; }
+                  return APP_CFG.viewerBase + encodeURIComponent(filename);   // FIX N9
+              }
 
+              // ---------- FIX M2: full reset ----------
 
-                  // ================================
-                  // ELIGIBILITY DOCUMENT
-                  // ================================
-                  var app_eligibility_doc = $(this).data('app_eligibility_doc');
+              function resetEvaluationForm() {
+                  var $form = $('#evaluate_form');
 
-                  if (appDate >= cutoffDate) {
-                      var app_eligibility_doc_link =
-                          career_url + 'view-document/eligibility/' + app_hash;
-                  } else {
-                      var app_eligibility_doc_link =
-                          '<?php echo base_url().'pdfviewer/web/viewer.php?file='.base_url().'uploads/ApplicantDocx/'; ?>'
-                          + app_eligibility_doc;
+                  $form[0].reset();
+                  $form.find('input[type="radio"], input[type="checkbox"]').prop('checked', false);
+                  $form.find('input[type="text"], input[type="number"], input[type="hidden"], textarea').val('');
+                  $form.find('select').val('');
+
+                  // text-only display fields
+                  $([
+                      '#pos_eligibility', '#pos_education', '#pos_experience', '#pos_training',
+                      '#app_eligibility', '#app_course', '#app_relevant_years', '#app_relevant_hours',
+                      '#app_arp_international', '#app_arp_national', '#app_arp_regional', '#app_arp_provincial',
+                      '#app_expert_international_p', '#app_expertise_national_p',
+                      '#app_expertise_regional_p', '#app_expertise_provincial_p',
+                      '#app_committee_chair_p', '#app_committee_vchair_p',
+                      '#app_committee_member_p', '#app_committee_sec_p'
+                  ].join(',')).text('');
+
+                  // conditional sections
+                  $('#chk16_div, #chk18_div').hide();
+
+                  // document anchors: clear stale hrefs and re-enable
+                  Object.keys(DOC_TARGETS).forEach(function (route) {
+                      $(DOC_TARGETS[route].join(',')).removeAttr('href');
+                  });
+                  $('#btn_exrp_doc_link, #btn_ctwg_doc_link').removeAttr('href');
+                  setDisabled($('#btn_app_arp_international, #btn_app_expert_international, #btn_app_committee_chair'), false);
+
+                  return $form;
+              }
+
+              // ---------- handler ----------
+
+              $('#applicants_table_body').on('click', '.item_evaluation', function (e) {
+                  e.preventDefault();                                  // FIX N8
+
+                  var $row   = $(this);
+                  var app_id = $row.data('app_id');                    // read BEFORE reset
+
+                  var $form = resetEvaluationForm();
+
+                  // ----- Annexes -----
+                  $('#appannexj').attr('href',  APP_CFG.baseUrl + 'r2_annex_j/'  + app_id);
+                  $('#appannexj2').attr('href', APP_CFG.baseUrl + 'r2_annex_j2/' + app_id);
+                  $('#app_id_eval').val(app_id);
+
+                  // ----- Computed aggregates: compute FIRST (FIX B2) -----
+                  var app_eligibility_text   = formatEligibility($row.data('app_eligibility'));
+                  var total_relevant_years   = sumSemicolonList($row.data('app_relevant_years'));
+                  var total_training_hours   = sumSemicolonList($row.data('app_training_hours'));
+
+                  // ----- Position details -----
+                  $('#pos_eligibility').text($row.data('pos_eligibility') || '');
+                  $('#pos_education').text($row.data('pos_education') || '');
+                  $('#pos_experience').text($row.data('pos_experience') || '');
+                  $('#pos_training').text($row.data('pos_training') || '');
+                  $('#app_course').text($row.data('app_course') || '');
+                  $('#app_eligibility').text(app_eligibility_text);
+                  $('#app_relevant_years').text(total_relevant_years + ' year/s');
+                  $('#app_relevant_hours').text(total_training_hours + ' hour/s');
+
+                  // ----- Applicant information -----
+                  var gender = String($row.data('app_gender') || '').toLowerCase();  // FIX N2
+                  var genderLabel = gender === 'male'   ? 'Male'
+                                  : gender === 'female' ? 'Female'
+                                  : '';
+
+                  var fullname = [
+                      $row.data('app_lastname'),
+                      [$row.data('app_firstname'), $row.data('app_middlename')]
+                          .filter(hasValue).join(' ')
+                  ].filter(hasValue).join(', ');
+
+                  $('#fullname').val(fullname);
+                  $('#age').val($row.data('app_age') || '');
+                  $('#sex').val(genderLabel);
+                  $('#ous_desc').val($row.data('ous_desc') || '');
+                  $('#pos_desc').val($row.data('pos_desc') || '');
+                  $('#present_position').val($row.data('app_present_position') || '');
+                  $('#present_office').val($row.data('app_present_office') || '');
+
+                  // ----- Evaluation radios (FIX M4: scoped to $form) -----
+                  ['eval_result', 'eval_eligibility', 'eval_education',
+                  'eval_experience', 'eval_performance', 'eval_training'
+                  ].forEach(function (name) {
+                      var val = $row.data(name);
+                      if (hasValue(val)) {
+                          $form.find('input[name="' + name + '"][value="' + val + '"]')
+                              .prop('checked', true);
+                      }
+                  });
+
+                  // ----- Evaluation text inputs -----
+                  ['eval_arp_international', 'eval_arp_national',
+                  'eval_arp_regional', 'eval_arp_provincial',
+                  'eval_chklist', 'eval_chklist1', 'eval_chklist2', 'eval_chklist3',
+                  'eval_chklist4', 'eval_chklist5', 'eval_chklist6', 'eval_chklist8',
+                  'eval_chklist9', 'eval_chklist10', 'eval_chklist13', 'eval_chklist14'
+                  ].forEach(function (id) {
+                      $('#' + id).val($row.data(id) || '');
+                  });
+
+                  // ----- Conditional remarks (FIX M1: truthiness, not !== null) -----
+                  var eval_remarks  = $row.data('eval_remarks');
+                  var eval_remarks1 = $row.data('eval_remarks1');
+
+                  if (hasValue(eval_remarks1)) {
+                      $form.find('input[name="chk16"]').prop('checked', true);
+                      $('#chk16_div').show();
+                      $('#eval_remarks1').val(eval_remarks1);
+                  }
+                  if (hasValue(eval_remarks)) {
+                      $form.find('input[name="chk18"]').prop('checked', true);
+                      $('#chk18_div').show();
+                      $('#eval_remarks').val(eval_remarks);
                   }
 
-                  $("#app_eligibility_doc_link1").attr("href", app_eligibility_doc_link).attr("target", "_blank");
-                  $("#btn_eligibility_doc_link1").attr("href", app_eligibility_doc_link).attr("target", "_blank");
+                  // ----- Documents: one loop, all sources (FIX B3, B4, N6) -----
+                  Object.keys(DOC_MAP).forEach(function (dataKey) {
+                      var route = DOC_MAP[dataKey];
+                      var url   = buildDocUrl($row, dataKey, route);
+                      var targets = DOC_TARGETS[route];
+                      if (!targets) { return; }
 
+                      if (url) {
+                          setHref(targets, url);
+                          setDisabled($(targets.join(',')), false);
+                      } else {
+                          setDisabled($(targets.join(',')), true);
+                      }
+                  });
 
-                  // ================================
-                  // EDUCATIONAL DOCUMENT / TOR
-                  // ================================
-                  var app_educational_doc = $(this).data('app_educational_doc');
+                  // ----- Performance / Awards -----
+                  var perf = {
+                      international: $row.data('app_performance_international'),
+                      national:      $row.data('app_performance_national'),
+                      regional:      $row.data('app_performance_regional'),
+                      provincial:    $row.data('app_performance_provincial')
+                  };
+                  $('#app_arp_international').text(perf.international || '');
+                  $('#app_arp_national').text(perf.national || '');
+                  $('#app_arp_regional').text(perf.regional || '');
+                  $('#app_arp_provincial').text(perf.provincial || '');
 
-                  if (appDate >= cutoffDate) {
-                      var app_educational_doc_link =
-                          career_url + 'view-document/educational/' + app_hash;
-                  } else {
-                      var app_educational_doc_link =
-                          '<?php echo base_url().'pdfviewer/web/viewer.php?file='.base_url().'uploads/ApplicantDocx/'; ?>'
-                          + app_educational_doc;
-                  }
+                  var noPerf = Object.keys(perf).every(function (k) {
+                      return !hasValue(perf[k]) || perf[k] === 'N/A';
+                  });
+                  // href already set by the DOC_MAP loop above — only toggle state here
+                  setDisabled($('#btn_app_arp_international'), noPerf);
 
-                  $("#app_educational_doc_link").attr("href", app_educational_doc_link).attr("target", "_blank");
-                  $("#btn_tor_doc_link").attr("href", app_educational_doc_link).attr("target", "_blank");
+                  // ----- Expertise -----
+                  var exp = {
+                      international: $row.data('app_expert_international'),
+                      national:      $row.data('app_expertise_national'),
+                      regional:      $row.data('app_expertise_regional'),
+                      provincial:    $row.data('app_expertise_provincial')
+                  };
+                  $('#app_expert_international_p').text(exp.international || '');
+                  $('#app_expertise_national_p').text(exp.national || '');
+                  $('#app_expertise_regional_p').text(exp.regional || '');
+                  $('#app_expertise_provincial_p').text(exp.provincial || '');
 
+                  var serviceUrl = buildDocUrl($row, 'app_service', 'sr');
+                  var noExp = Object.keys(exp).every(function (k) {
+                      return !hasValue(exp[k]) || exp[k] === 'N/A';
+                  });
+                  if (serviceUrl) { setHref(['#btn_exrp_doc_link'], serviceUrl); }
+                  if (serviceUrl && !noExp) { setHref(['#btn_app_expert_international'], serviceUrl); }
+                  setDisabled($('#btn_app_expert_international'), noExp || !serviceUrl);
 
-                  // ================================
-                  // TRAINING DOCUMENT
-                  // ================================
-                  var app_training_doc = $(this).data('app_training_doc');
+                  // ----- Committee -----
+                  var com = {
+                      chair:   $row.data('app_committee_chair'),
+                      vchair:  $row.data('app_committee_vchair'),
+                      member:  $row.data('app_committee_member'),
+                      sec:     $row.data('app_committee_sec')
+                  };
+                  $('#app_committee_chair_p').text(com.chair || '');
+                  $('#app_committee_vchair_p').text(com.vchair || '');
+                  $('#app_committee_member_p').text(com.member || '');
+                  $('#app_committee_sec_p').text(com.sec || '');
 
-                  if (appDate >= cutoffDate) {
-                      var app_training_doc_link =
-                          career_url + 'view-document/training/' + app_hash;
-                  } else {
-                      var app_training_doc_link =
-                          '<?php echo base_url().'pdfviewer/web/viewer.php?file='.base_url().'uploads/ApplicantDocx/'; ?>'
-                          + app_training_doc;
-                  }
+                  var committeeUrl = buildDocUrl($row, 'app_committee', 'ctwg');
+                  var noCom = Object.keys(com).every(function (k) {
+                      return !hasValue(com[k]) || com[k] === 'N/A';
+                  });
+                  if (committeeUrl) { setHref(['#btn_ctwg_doc_link'], committeeUrl); }
+                  if (committeeUrl && !noCom) { setHref(['#btn_app_committee_chair'], committeeUrl); }
+                  setDisabled($('#btn_app_committee_chair'), noCom || !committeeUrl);
+              });
 
-                  $("#app_training_doc_link").attr("href", app_training_doc_link).attr("target", "_blank");
-                  $("#btn_training_doc_link").attr("href", app_training_doc_link).attr("target", "_blank");
+          }());
 
-
-                  // ================================
-                  // IPCR DOCUMENT
-                  // ================================
-                  var app_ipcr_doc = $(this).data('app_ipcr_doc');
-
-                  if (appDate >= cutoffDate) {
-                      var app_ipcr_doc_link =
-                          career_url + 'view-document/ipcr/' + app_hash;
-                  } else {
-                      var app_ipcr_doc_link =
-                          '<?php echo base_url().'pdfviewer/web/viewer.php?file='.base_url().'uploads/ApplicantDocx/'; ?>'
-                          + app_ipcr_doc;
-                  }
-
-                  $("#app_ipcr_doc_link").attr("href", app_ipcr_doc_link).attr("target", "_blank");
-                  $("#btn_ipcr_doc_link").attr("href", app_ipcr_doc_link).attr("target", "_blank");
-
-
-                  // ================================
-                  // PDS / WES DOCUMENT
-                  // ================================
-                  var btn_pdswes_doc = $(this).data('btn_pdswes_doc');
-
-                  if (appDate >= cutoffDate) {
-                      var btn_pdswes_doc_link =
-                          career_url + 'view-document/pds/' + app_hash;
-                  } else {
-                      var btn_pdswes_doc_link =
-                          '<?php echo base_url().'pdfviewer/web/viewer.php?file='.base_url().'uploads/ApplicantDocx/'; ?>'
-                          + btn_pdswes_doc;
-                  }
-
-                  $("#btn_pdswes_doc_link").attr("href", btn_pdswes_doc_link).attr("target", "_blank");
-
-
-                  // ================================
-                  // WES DOCUMENT
-                  // ================================
-                  var btn_wes_doc = $(this).data('btn_wes_doc');
-
-                  if (appDate >= cutoffDate) {
-                      var btn_wes_doc_link =
-                          career_url + 'view-document/wes/' + app_hash;
-                  } else {
-                      var btn_wes_doc_link =
-                          '<?php echo base_url().'pdfviewer/web/viewer.php?file='.base_url().'uploads/ApplicantDocx/'; ?>'
-                          + btn_wes_doc;
-                  }
-
-                  $("#btn_wes_doc_link").attr("href", btn_wes_doc_link).attr("target", "_blank");
-                  $("#btn_wes_doc_link1").attr("href", btn_wes_doc_link).attr("target", "_blank");
-
-
-                  // ================================
-                  // SERVICE RECORD
-                  // ================================
-                  var btn_service_reccord_doc = $(this).data('btn_service_reccord_doc');
-
-                  if (appDate >= cutoffDate) {
-                      var btn_service_reccord_doc_link =
-                          career_url + 'view-document/sr/' + app_hash;
-                  } else {
-                      var btn_service_reccord_doc_link =
-                          '<?php echo base_url().'pdfviewer/web/viewer.php?file='.base_url().'uploads/ApplicantDocx/'; ?>'
-                          + btn_service_reccord_doc;
-                  }
-
-                  $("#btn_service_reccord_doc_link")
-                      .attr("href", btn_service_reccord_doc_link)
-                      .attr("target", "_blank");
-
-
-                  // ================================
-                  // APPOINTMENT DOCUMENT
-                  // ================================
-                  var btn_appointment_doc = $(this).data('btn_appointment_doc');
-
-                  if (appDate >= cutoffDate) {
-                      var btn_appointment_doc_link =
-                          career_url + 'view-document/cpa/' + app_hash;
-                  } else {
-                      var btn_appointment_doc_link =
-                          '<?php echo base_url().'pdfviewer/web/viewer.php?file='.base_url().'uploads/ApplicantDocx/'; ?>'
-                          + btn_appointment_doc;
-                  }
-
-                  $("#btn_appointment_doc_link")
-                      .attr("href", btn_appointment_doc_link)
-                      .attr("target", "_blank");
-
-
-                  // ================================
-                  // NATIONAL CERTIFICATE
-                  // ================================
-                  var btn_nc_doc = $(this).data('btn_nc_doc');
-
-                  if (appDate >= cutoffDate) {
-                      var btn_nc_doc_link =
-                          career_url + 'view-document/nc/' + app_hash;
-                  } else {
-                      var btn_nc_doc_link =
-                          '<?php echo base_url().'pdfviewer/web/viewer.php?file='.base_url().'uploads/ApplicantDocx/'; ?>'
-                          + btn_nc_doc;
-                  }
-
-                  $("#btn_nc_doc_link")
-                      .attr("href", btn_nc_doc_link)
-                      .attr("target", "_blank");
-
-                  // ================================
-                  // ARP / PERFORMANCE DOCUMENT
-                  // ================================
-                  var app_performance = $(this).data('app_performance');
-
-                  if (appDate >= cutoffDate) {
-                      var app_performance_link =
-                          career_url + 'view-document/awards/' + app_hash;
-                  } else {
-                      var app_performance_link =
-                          '<?php echo base_url().'pdfviewer/web/viewer.php?file='.base_url().'uploads/ApplicantDocx/'; ?>'
-                          + app_performance;
-                  }
-
-                  $("#btn_arp_doc_link")
-                      .attr("href", app_performance_link)
-                      .attr("target", "_blank");
-
-                  $("#btn_app_arp_international")
-                      .attr("href", app_performance_link)
-                      .attr("target", "_blank");
-
-
-                  // ================================
-                  // NTTC DOCUMENT
-                  // ================================
-                  var btn_nttc_doc = $(this).data('btn_nttc_doc');
-
-                  if (appDate >= cutoffDate) {
-                      var btn_nttc_doc_link =
-                          career_url + 'view-document/nttc/' + app_hash;
-                  } else {
-                      var btn_nttc_doc_link =
-                          '<?php echo base_url().'pdfviewer/web/viewer.php?file='.base_url().'uploads/ApplicantDocx/'; ?>'
-                          + btn_nttc_doc;
-                  }
-
-                  $("#btn_nttc_doc_link")
-                      .attr("href", btn_nttc_doc_link)
-                      .attr("target", "_blank");
-                                  }
-
-                //------Applicant Documents--------
-
-                //----------------Eligibility------------
-                //relevant experTrainingience    
-                var app_eligibility = '';   
-                var arr = $(this).data('app_eligibility').split(';');
-                $.each(arr, function( index, value ) {
-                  if(value == null){  
-                    app_eligibility += 'Career Executive Service Eligibility | ';
-                  }else if(value == 'csp'){
-                    app_eligibility += 'Career Service Professional Eligibility | ';
-                  }else if(value == 'cssp'){
-                    app_eligibility += 'Career Service Sub Professional Eligibility | ';
-                  }else if(value == 'ra1080'){
-                    app_eligibility += 'R.A. 1080 | ';
-                  }else if(value == 'pd907'){
-                    app_eligibility += 'PD 907 | ';
-                  }else if(value == 'mc11'){
-                    app_eligibility += 'MC 11 SERIES OF 1996 | ';
-                  }else{
-                    app_eligibility += value.toUpperCase();
-                  }
-                }); 
-                //----------------Eligibility------------
-
-                //----------------Experience------------
-                var total_relevant_years = 0;  
-                var arr = $(this).data('app_relevant_years').split(';');
-                $.each(arr, function( index, value ) {
-                  if(value == null){  
-                  }else{
-                    total_relevant_years = (+total_relevant_years) + (+value);
-                  }
-                }); 
-                //----------------Experience------------
-
-                //relevant hours 
-                var total_training_hours = 0;
-                var arr = $(this).data('app_training_hours').split(';');
-                $.each(arr, function( index, value ) {
-                  if(value == null){  
-                  }else{
-                    total_training_hours = (+total_training_hours) + (+value);  
-                  }
-                }); 
-             
-                $('#pos_eligibility').text(pos_eligibility);
-                $('#pos_education').text(pos_education);
-                $('#pos_experience').text(pos_experience);
-                $('#app_eligibility').text(app_eligibility);
-                $('#pos_training').text(pos_training);
-                $('#app_course').text(app_course);
-                $('#app_relevant_years').text(total_relevant_years +' year/s');
-                $('#app_relevant_hours').text(total_training_hours +' hour/s');
-
-                //applicant information
-                var app_lastname = $(this).data('app_lastname');
-                var app_firstname = $(this).data('app_firstname');
-                var app_middlename = $(this).data('app_middlename');
-                var app_age = $(this).data('app_age');
-                var ous_desc = $(this).data('ous_desc');
-                var pos_desc = $(this).data('pos_desc');
-                var app_present_position = $(this).data('app_present_position');
-                var app_present_office = $(this).data('app_present_office');
-               
-                if ($(this).data('app_gender') == 'male'){
-                  var app_gender = 'Male';
-                }else{{
-                  var app_gender = 'Female';
-                }};
-
-                $('#fullname').val(app_lastname+', '+app_firstname+' '+app_middlename);
-                $('#age').val(app_age);
-                $('#sex').val(app_gender);
-                $('#ous_desc').val(ous_desc);
-                $('#pos_desc').val(pos_desc);
-                $('#present_position').val(app_present_position);
-                $('#present_office').val(app_present_office);
-                
-              
-                //Peformance
-                var app_arp_international = $(this).data('app_performance_international');
-                var app_arp_national = $(this).data('app_performance_national');
-                var app_arp_regional = $(this).data('app_performance_regional');
-                var app_arp_provincial = $(this).data('app_performance_provincial');
-                var app_performance = $(this).data('app_performance');
-                $('#app_arp_international').text(app_arp_international);
-                $('#app_arp_national').text(app_arp_national);
-                $('#app_arp_regional').text(app_arp_regional);
-                $('#app_arp_provincial').text(app_arp_provincial);
-
-                //check if null
-                if (app_performance == null){
-                  var app_performance_link = '<?php echo base_url().'pdfviewer/web/viewer.php?file='.base_url().'uploads/ApplicantDocx/null'?>';
-                }else{
-                  var app_performance_link = '<?php echo base_url().'pdfviewer/web/viewer.php?file='.base_url().'uploads/ApplicantDocx/'?>' + app_performance;
-                }
-                if(app_arp_international == "N/A" && app_arp_national == "N/A" && app_arp_regional == "N/A" && app_arp_provincial == "N/A"){
-                  $('#btn_app_arp_international').addClass("disabled", true);
-                }else{
-                  $("#btn_app_arp_international").prop("href", app_performance_link)
-                  $('#btn_app_arp_international').removeclass("disabled");
-                }
-                $("#btn_arp_doc_link").prop("href", app_performance_link)
-                //Peformance
-
-                //Expert
-                var app_expert_international = $(this).data('app_expert_international');
-                var app_expertise_national = $(this).data('app_expertise_national');
-                var app_expertise_regional = $(this).data('app_expertise_regional');
-                var app_expertise_provincial = $(this).data('app_expertise_provincial');
-                var app_service = $(this).data('app_service');
-                $('#app_expert_international_p').text(app_expert_international);
-                $('#app_expertise_national_p').text(app_expertise_national);
-                $('#app_expertise_regional_p').text(app_expertise_regional);
-                $('#app_expertise_provincial_p').text(app_expertise_provincial);
-
-                //check if null
-                if (app_service == null){
-                  var app_service_limk = '<?php echo base_url().'pdfviewer/web/viewer.php?file='.base_url().'uploads/ApplicantDocx/null'?>';
-                }else{
-                  var app_service_limk = '<?php echo base_url().'pdfviewer/web/viewer.php?file='.base_url().'uploads/ApplicantDocx/'?>' + app_service;
-                }
-                if(app_expert_international == "N/A" && app_expertise_national == "N/A" && app_expertise_regional == "N/A" && app_expertise_provincial == "N/A"){
-                  $('#btn_app_expert_international').addClass("disabled", true);
-                }else{
-                  $("#btn_app_expert_international").prop("href", app_service_limk)
-                  $('#btn_app_expert_international').removeclass("disabled");
-                }
-                $("#btn_exrp_doc_link").prop("href", app_service_limk)
-                //Expert
-
-                //Committee
-                var app_committee_chair = $(this).data('app_committee_chair');
-                var app_committee_vchair = $(this).data('app_committee_vchair');
-                var app_committee_member = $(this).data('app_committee_member');
-                var app_committee_sec = $(this).data('app_committee_sec');
-                var app_committee = $(this).data('app_committee');
-                $('#app_committee_chair_p').text(app_committee_chair);
-                $('#app_committee_vchair_p').text(app_committee_vchair);
-                $('#app_committee_member_p').text(app_committee_member);
-                $('#app_committee_sec_p').text(app_committee_sec);
-
-                //check if null
-                if (app_committee == null){
-                  var app_committee_limk = '<?php echo base_url().'pdfviewer/web/viewer.php?file='.base_url().'uploads/ApplicantDocx/null'?>';
-                }else{
-                  var app_committee_limk = '<?php echo base_url().'pdfviewer/web/viewer.php?file='.base_url().'uploads/ApplicantDocx/'?>' + app_committee;
-                }
-                if(app_committee_chair == "N/A" && app_committee_vchair == "N/A" && app_committee_member == "N/A" && app_committee_sec == "N/A"){
-                  $('#btn_app_committee_chair').addClass("disabled", true);
-                }else{
-                  $("#btn_app_committee_chair").prop("href", app_committee_limk)
-                  $('#btn_app_committee_chair').removeclass("disabled");
-                }
-                $("#btn_ctwg_doc_link").prop("href", app_committee_limk)
-                //Committee
-            });
 //-------------------function show all work experience
 
 //-------------------function Compute

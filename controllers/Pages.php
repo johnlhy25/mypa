@@ -10285,15 +10285,17 @@ class Pages extends CI_Controller{
         if($this->session->logged_in){
             $data = $this->Posts_model->evaluate_form();
             if($data['status'] == 'True'){
+                //send email here
+                
                 $result = array(
                     'status' => 'True',
-                    'error' => 'Evaluated Successfully'
+                    'error' => '<i class="fa fa-check-circle"></i> Evaluated Successfully'
                 );
     
             }else{
                 $result = array(
                     'status' => 'False',
-                    'error' => 'Server Error'
+                    'error' => '<i class="fa fa-exclamation-triangle"></i> Server error — the evaluation was not saved.'
                 );
             }
             echo json_encode($result);
