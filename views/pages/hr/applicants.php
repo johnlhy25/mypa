@@ -1059,7 +1059,7 @@ if( $this->session->logged_in){
             viewerBase: '<?= base_url() ?>pdfviewer/web/viewer.php?file=<?= base_url() ?>uploads/ApplicantDocx/',
             rmsBase:    'https://rms.tesdar02onlinereporting.ph/applicants_docs/',
             rmsViewer:  'https://rms.tesdar02onlinereporting.ph/applicants_docs/pdfviewer/web/viewer.php?file=https://rms.tesdar02onlinereporting.ph/applicants_docs/',
-            careerUrl:  '<?= rtrim(config_item("career_portal_url") ?: "https://careers.tesdar02onlinereporting.ph/", "/") ?>/',
+            careerUrl: '<?= ($_SERVER['HTTP_HOST'] === 'localhost') ? 'http://localhost/careers/' : 'https://careers.tesdar02onlinereporting.ph/' ?>/',
             docCutoff:  '<?= config_item("career_doc_cutoff") ?: "2026-09-01" ?>'
         };
 
