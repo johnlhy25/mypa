@@ -1,0 +1,33 @@
+# CodeIgniter configuration
+application/config/config.php
+application/config/database.php
+
+# User-uploaded files
+uploads/
+application/uploads/
+
+# Cache
+application/cache/*
+!application/cache/index.html
+
+# Logs
+application/logs/*
+!application/logs/index.html
+
+# Sessions
+application/sessions/*
+!application/sessions/index.html
+
+# Environment files
+.env
+
+# XAMPP / local files
+*.log
+
+# IDE settings
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
